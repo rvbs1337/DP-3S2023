@@ -3,21 +3,21 @@
 #include <locale.h>
 #include <string.h>
 
-/*CADASTRO VERS√O 1.2
+/*CADASTRO VERS√ÉO 2.0
 1.0 - Adicionado cadastro da placa;
 
-1.1 - registro da placa agora È feito por um procedimento;
+1.1 - registro da placa agora √© feito por um procedimento;
 
 1.2 - Adicionado erro pro cadastro da placa;
 
-pre 2.0 - Adicionar seleÁ„o de marca
+2.0 - Adicionar sele√ß√£o de marca
 */
 
 char placa[8];
 char aux[2];
-int placaVet[7];
+int placaVet[7], marcaN;
 bool valido = true;
-char marca[15][10] = ["Chevrolet","Citroen","Fiat","Honda","Jeep","Kia","Peugeot","Renault","Toyota","Volkswagen"];
+char marca[15][15] = {"Chevrolet","Citroen","Fiat","Honda","Jeep","Kia","Peugeot","Renault","Toyota","Volkswagen"}, marcaVeiculo[15];
 
 void registrarPlaca(){
 		valido = true;
@@ -78,6 +78,66 @@ void registrarPlaca(){
         }            
 
 }
+//char marca[15][15] = {"Chevrolet","Citroen","Fiat","Honda","Jeep","Kia","Peugeot","Renault","Toyota","Volkswagen"};
+void registrarMarca(){
+    printf("O ve√≠culo √© de que marca? Digite o n√∫mero:\n");
+    printf("1 - Chevrolet\n");
+    printf("2 - Citroen\n");
+    printf("3 - Fiat\n");
+    printf("4 - Honda\n");
+    printf("5 - Jeep\n");
+    printf("6 - Kia\n");
+    printf("7 - Peugeot\n");
+    printf("8 - Renault\n");
+    printf("9 - Toyota\n");
+    printf("10 - Volkswagen\n");
+    
+           scanf("%i", &marcaN);
+    
+    switch(marcaN){
+
+			case 1:
+				strcpy(marcaVeiculo, marca[0]);	
+				
+			break;
+			case 2:
+				strcpy(marcaVeiculo, marca[1]);		
+			
+			break;
+			case 3:
+				strcpy(marcaVeiculo, marca[2]);		
+				
+			break;
+            case 4:
+				strcpy(marcaVeiculo, marca[3]);		
+			    
+            break;
+            case 5:
+                strcpy(marcaVeiculo, marca[4]);	   
+            break;   
+			    
+            case 6:
+                strcpy(marcaVeiculo, marca[5]);	   
+            break;   
+                
+            case 7:
+                strcpy(marcaVeiculo, marca[6]);	   
+            break;   
+                
+            case 8:
+                strcpy(marcaVeiculo, marca[7]);	 
+            break;   
+                
+            case 9:
+                strcpy(marcaVeiculo, marca[8]);	    
+            break;   
+            
+            case 10:
+                strcpy(marcaVeiculo, marca[9]);	   
+            break;   
+                
+       }
+}
 
 int main(){
 	setlocale(LC_ALL, "portuguese");
@@ -85,10 +145,14 @@ int main(){
 	do{
 		registrarPlaca();
 		if(!valido){
-			printf("Erro, um ou mais caracteres invalidos.\nO campo deve ser preenchido com o padr„o ABC1234 ou ABC1D23.\n");
+			printf("Erro, um ou mais caracteres invalidos.\nO campo deve ser preenchido com o padr√£o ABC1234 ou ABC1D23.\n");
 			printf("Por favor preencha novamente.\n");
 		}
 	}while(!valido);
+	
+	registrarMarca();
+	
+	printf("%s \n", marcaVeiculo);
 	
     system("pause");
 
