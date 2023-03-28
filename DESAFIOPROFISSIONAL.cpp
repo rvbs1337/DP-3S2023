@@ -3,14 +3,16 @@
 #include <locale.h>
 #include <string.h>
 
-/*CADASTRO VERSÃO 2.0
+/*CADASTRO VERSÃO 2.1
 1.0 - Adicionado cadastro da placa;
 
 1.1 - registro da placa agora é feito por um procedimento;
 
 1.2 - Adicionado erro pro cadastro da placa;
 
-2.0 - Adicionar seleção de marca
+2.0 - Adicionar seleção de marca;
+
+2.1 - Refatorado seleção de marca;
 */
 
 char placa[8];
@@ -80,19 +82,14 @@ void registrarPlaca(){
 }
 //char marca[15][15] = {"Chevrolet","Citroen","Fiat","Honda","Jeep","Kia","Peugeot","Renault","Toyota","Volkswagen"};
 void registrarMarca(){
-    printf("O veículo é de que marca? Digite o número:\n");
-    printf("1 - Chevrolet\n");
-    printf("2 - Citroen\n");
-    printf("3 - Fiat\n");
-    printf("4 - Honda\n");
-    printf("5 - Jeep\n");
-    printf("6 - Kia\n");
-    printf("7 - Peugeot\n");
-    printf("8 - Renault\n");
-    printf("9 - Toyota\n");
-    printf("10 - Volkswagen\n");
+	
+	printf("O veículo é de que marca? Digite o número:\n");
+	
+	for(int i = 0; i < 10; i++){
+		printf("%d - %s\n", i+1, marca[i]);	
+	}
     
-           scanf("%i", &marcaN);
+	scanf("%i", &marcaN);
     
     switch(marcaN){
 
