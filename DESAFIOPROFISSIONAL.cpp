@@ -4,6 +4,7 @@
 #include <string.h>
 #include <windows.h>
 
+
 /*CADASTRO VERSÃO 3.0
 1.0 - Adicionado cadastro da placa;
 
@@ -119,7 +120,6 @@ void registrarMarca(){
     
 	scanf("%i", &marcaN);
 	fflush(stdin);
-    
     system("cls");
     
     switch(marcaN){
