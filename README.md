@@ -14,3 +14,5 @@ O objetivo do algoritmo é ser um cadastro de veiculos para um software de contr
 2.1 - Refatorado seleção de marca;
 
 3.0 - Seleção de Veiculo;
+
+4.0 - Registro de chassi;
