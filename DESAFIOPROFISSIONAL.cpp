@@ -4,8 +4,7 @@
 #include <string.h>
 #include <windows.h>
 
-
-/*CADASTRO VERSÃO 3.0
+/*CADASTRO VERSÃO 4.0
 1.0 - Adicionado cadastro da placa;
 
 1.1 - registro da placa agora é feito por um procedimento;
@@ -17,11 +16,14 @@
 2.1 - Refatorado seleção de marca;
 
 3.0 - Seleção de Veiculo;
+
+4.0 - Registro de chassi;
 */
 
 char placa[8];
+char chassi[18];
 char aux[2];
-int placaVet[7], marcaN, modeloN;
+int placaVet[7],chassiVet[17], marcaN, modeloN;
 bool valido = true;
 char marca[10][15] = {"CHEVROLET","CITROEN","FIAT","HONDA","JEEP","KIA","PEUGEOT","RENAULT","TOYOTA","VOLKSWAGEN"}, marcaVeiculo[15], modeloVeiculo[15];
 char modeloGM[14][15] = {"S10","D-20","CLASSIC","MONTANA","SPIN","COBALT","ONIX","CRUZE","CORSA","OMEGA","ASTRA","PRISMA","BAZER","ZAFIRA"};
@@ -37,7 +39,7 @@ char modeloVW[5][15] = {"GOL","KOMBI","PARATI","SAVEIRO","VOYAGE"};
 
 void loading(){
 	system("cls");
-	for(int i = 0; i<14; i++){
+	for(int i = 0; i<2; i++){
 		printf("Carregando.");
 		Sleep(400);
 		system("cls");
@@ -120,6 +122,7 @@ void registrarMarca(){
     
 	scanf("%i", &marcaN);
 	fflush(stdin);
+    
     system("cls");
     
     switch(marcaN){
@@ -228,6 +231,116 @@ void registrarMarca(){
        }
 }
 
+void registrarChassi(){
+		valido = true;
+		
+		printf("Chassi: ");
+		gets(chassi);
+		fflush(stdin);
+		
+		strupr(chassi);
+
+		for(int i = 0; i < 17; i++){
+			chassiVet[i] = chassi[i];
+		}
+		
+		for(int i = 0; i < 17; i++){
+    
+			switch(i){
+			case 0:
+				if(chassiVet[i] < 48 || chassiVet[i] > 57){
+					valido = false;
+					break;
+				}
+			break;
+			case 1:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;
+				}
+			break;
+			case 2:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;
+				}
+			break;
+			case 3:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;
+				}
+			break;
+            case 4:
+                if(chassiVet[i] >= 65 && chassiVet[i] <= 90){
+					valido = false;
+					}
+                    break;
+            case 5:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+			    }
+            case 6:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 7:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;    
+            }
+            case 8:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;    
+            }
+            case 9:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 10:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 11:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 12:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 13:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 14:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+            	}
+            case 15:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 16:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+        }            
+
+	}
+}
+
 int main(){
 	setlocale(LC_ALL, "portuguese");
 	
@@ -245,9 +358,14 @@ int main(){
 	
 	loading();
 	
+	registrarChassi();
+	
+	loading();
+	
 	printf("Placa: %s \n", placa);
 	printf("Marca: %s \n", marcaVeiculo);
 	printf("Modelo: %s \n", modeloVeiculo);
+	printf("Chassi: %s \n", chassi);
 	
     system("pause");
 
