@@ -5,7 +5,7 @@ O objetivo do algoritmo é ser um cadastro de veiculos para um software de contr
 
 1.0 - Adicionado cadastro da placa;
 
-1.1 - registro da placa agora é feito por um procedimento;
+1.1 - Registro da placa agora é feito por um procedimento;
 
 1.2 - Adicionado erro pro cadastro da placa;
 
@@ -18,3 +18,5 @@ O objetivo do algoritmo é ser um cadastro de veiculos para um software de contr
 4.0 - Seleção de Setor;
 
 5.0 - Registro de Chassi;
+
+5.1 - Refatoração rapida;
