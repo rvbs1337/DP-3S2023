@@ -5,6 +5,7 @@
 #include <windows.h>
 
 
+
 /*CADASTRO VERSÃO 5.1
 1.0 - Adicionado cadastro da placa;
 1.1 - Registro da placa agora é feito por um procedimento;
@@ -203,7 +204,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloFiat[modeloN-1]);
 						
 						system("cls");
-						
+
 			break;
             case 4:
 				strcpy(marcaVeiculo, marca[3]);		
@@ -216,7 +217,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloHD[modeloN-1]);
 						
 						system("cls");
-						
+
             break;
             case 5:
                 strcpy(marcaVeiculo, marca[4]);	
@@ -229,7 +230,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloJeep[modeloN-1]);
 						
 						system("cls");
-						
+
             break;   
             case 6:
                 strcpy(marcaVeiculo, marca[5]);
@@ -242,7 +243,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloKia[modeloN-1]);
 						
 						system("cls");
-						
+
             break;   
             case 7:
                 strcpy(marcaVeiculo, marca[6]);	 
@@ -255,7 +256,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloPG[modeloN-1]);
 						
 						system("cls");
-						
+
             break;    
             case 8:
                 strcpy(marcaVeiculo, marca[7]);	
@@ -268,7 +269,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloRN[modeloN-1]);
 						
 						system("cls");
-						
+
             break;   
             case 9:
                 strcpy(marcaVeiculo, marca[8]);	
@@ -281,7 +282,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloToyo[modeloN-1]);
 						
 						system("cls");
-						
+
             break;   
             case 10:
                 strcpy(marcaVeiculo, marca[9]);	
@@ -294,7 +295,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloVW[modeloN-1]);
 						
 						system("cls");
-						
+
             break;   
                 
        }
