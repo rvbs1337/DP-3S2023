@@ -5,19 +5,22 @@
 #include <windows.h>
 
 
-/*CADASTRO VERSÃO 5.0
+/*CADASTRO VERSÃO 5.1
 1.0 - Adicionado cadastro da placa;
-1.1 - registro da placa agora é feito por um procedimento;
+1.1 - Registro da placa agora é feito por um procedimento;
 1.2 - Adicionado erro pro cadastro da placa;
 2.0 - Adicionar seleção de marca;
 2.1 - Refatorado seleção de marca;
 3.0 - Seleção de Veiculo;
-5.0 - Seleção de Setor;
+4.0 - Seleção de Setor;
+5.0 - Registro de Chassi;
+5.1 - Refatoração rapida;
 */
 
 char placa[8];
+char chassi[18];
 char aux[2];
-int placaVet[7], marcaN, modeloN, setorN;
+int placaVet[7],chassiVet[17], marcaN, modeloN, setorN;
 bool valido = true;
 char marca[10][15] = {"CHEVROLET","CITROEN","FIAT","HONDA","JEEP","KIA","PEUGEOT","RENAULT","TOYOTA","VOLKSWAGEN"}, marcaVeiculo[15], modeloVeiculo[15],setorVeiculo[15];
 char modeloGM[14][15] = {"S10","D-20","CLASSIC","MONTANA","SPIN","COBALT","ONIX","CRUZE","CORSA","OMEGA","ASTRA","PRISMA","BAZER","ZAFIRA"};
@@ -35,6 +38,8 @@ char setor[10][30] = {"SETRAB","SELURB","SEINFRA","SEMOP","FUNREBOM","SECRETARIA
 void loading();
 void registrarPlaca();
 void registrarMarca();
+void registrarChassi();
+void registrarSetor();
 //------------------------------------------------------------------------------
 
 int main(){
@@ -54,9 +59,18 @@ int main(){
 	
 	loading();
 	
+	registrarSetor();
+	
+	loading();
+	
+	registrarChassi();
+	
+	loading();
+	
 	printf("Placa: %s \n", placa);
 	printf("Marca: %s \n", marcaVeiculo);
 	printf("Modelo: %s \n", modeloVeiculo);
+	printf("Chassi: %s \n", chassi);
 	printf("Setor: %s \n", setorVeiculo);
 	
     system("pause");
@@ -164,13 +178,6 @@ void registrarMarca(){
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
 			break;
 			case 2:
 				strcpy(marcaVeiculo, marca[1]);	
@@ -180,17 +187,10 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloCIT[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
 			break;
 			case 3:
 				strcpy(marcaVeiculo, marca[2]);	
@@ -200,17 +200,10 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloFiat[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
 			break;
             case 4:
 				strcpy(marcaVeiculo, marca[3]);		
@@ -220,17 +213,10 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloHD[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
             break;
             case 5:
                 strcpy(marcaVeiculo, marca[4]);	
@@ -240,17 +226,10 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloJeep[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
             break;   
             case 6:
                 strcpy(marcaVeiculo, marca[5]);
@@ -260,17 +239,10 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloKia[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
             break;   
             case 7:
                 strcpy(marcaVeiculo, marca[6]);	 
@@ -280,17 +252,10 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloPG[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
             break;    
             case 8:
                 strcpy(marcaVeiculo, marca[7]);	
@@ -300,17 +265,10 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloRN[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
             break;   
             case 9:
                 strcpy(marcaVeiculo, marca[8]);	
@@ -320,17 +278,10 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloToyo[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
             break;   
             case 10:
                 strcpy(marcaVeiculo, marca[9]);	
@@ -340,19 +291,131 @@ void registrarMarca(){
 						scanf("%d", &modeloN);
 						fflush(stdin);
 						
-						strcpy(modeloVeiculo,modeloGM[modeloN-1]);
+						strcpy(modeloVeiculo,modeloVW[modeloN-1]);
 						
 						system("cls");
 						
-						for(int i = 0; i < 10; i++){ //seleção do setor
-    						printf("%d - %s\n", i+1, setor[i]);	
-    						}
-    						scanf("%d", &setorN);
-    						fflush(stdin);
-						
-						    strcpy(setorVeiculo,setor[setorN-1]);
             break;   
                 
        }
 }
 //------------------------------------------------------------------------------
+void registrarChassi(){
+		valido = true;
+		
+		printf("Chassi: ");
+		gets(chassi);
+		fflush(stdin);
+		
+		strupr(chassi);
+
+		for(int i = 0; i < 17; i++){
+			chassiVet[i] = chassi[i];
+		}
+		
+		for(int i = 0; i < 17; i++){
+    
+			switch(i){
+			case 0:
+				if(chassiVet[i] < 48 || chassiVet[i] > 57){
+					valido = false;
+					break;
+				}
+			break;
+			case 1:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;
+				}
+			break;
+			case 2:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;
+				}
+			break;
+			case 3:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;
+				}
+			break;
+            case 4:
+                if(chassiVet[i] >= 65 && chassiVet[i] <= 90){
+					valido = false;
+					}
+                    break;
+            case 5:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+			    }
+            case 6:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 7:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;    
+            }
+            case 8:
+				if(chassiVet[i] < 65 || chassiVet[i] > 90){
+					valido = false;
+					break;    
+            }
+            case 9:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 10:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 11:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 12:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 13:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 14:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+            	}
+            case 15:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+            case 16:
+                if(chassiVet[i] < 48 || chassiVet[i] > 57 ){
+                    valido = false;
+                    break;   
+                }
+        }            
+
+	}
+}
+//-------------------------------------------------------------------------------
+void registrarSetor(){
+	for(int i = 0; i < 10; i++){ //seleção do setor
+    printf("%d - %s\n", i+1, setor[i]);	
+   	}
+   	scanf("%d", &setorN);
+	fflush(stdin);
+						
+	strcpy(setorVeiculo,setor[setorN-1]);
+}
