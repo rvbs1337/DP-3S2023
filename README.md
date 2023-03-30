@@ -9,4 +9,8 @@ O objetivo do algoritmo é ser um cadastro de veiculos para um software de contr
 
 1.2 - Adicionado erro pro cadastro da placa;
 
-2.0 - Adicionar seleção de marca
+2.0 - Adicionar seleção de marca;
+
+2.1 - Refatorado seleção de marca;
+
+3.0 - Seleção de Veiculo;
