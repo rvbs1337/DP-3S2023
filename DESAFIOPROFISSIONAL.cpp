@@ -49,7 +49,7 @@ int main(){
 	do{
 		registrarPlaca();
 		if(!valido){
-			printf("Erro, um ou mais caracteres invalidos.\nO campo deve ser preenchido com o padrão ABC1234 ou ABC1D23.\n");
+			printf("Erro, um ou mais caracteres invalidos.\nO Campo deve ser preenchido com o padrão ABC1234 ou ABC1D23.\n");
 			printf("Por favor preencha novamente.\n");
 		}
 	}while(!valido);
