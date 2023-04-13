@@ -20,3 +20,5 @@ O objetivo do algoritmo é ser um cadastro de veiculos para um software de contr
 5.0 - Registro de Chassi;
 
 5.1 - Refatoração rapida;
+
+5.2 - Correção de bugs, Adição de textos que faltavam;
