@@ -5,17 +5,16 @@
 #include <windows.h>
 
 
-
-/*CADASTRO VERSÃO 5.1
+/*CADASTRO VERSÃO 5.0
 1.0 - Adicionado cadastro da placa;
-1.1 - Registro da placa agora é feito por um procedimento;
+1.1 - registro da placa agora é feito por um procedimento;
 1.2 - Adicionado erro pro cadastro da placa;
 2.0 - Adicionar seleção de marca;
 2.1 - Refatorado seleção de marca;
 3.0 - Seleção de Veiculo;
 4.0 - Seleção de Setor;
 5.0 - Registro de Chassi;
-5.1 - Refatoração rapida;
+5.1 - Correção de bugs, Adição de textos em falta;
 */
 
 char placa[8];
@@ -95,10 +94,13 @@ void loading(){
 //------------------------------------------------------------------------------
 void registrarPlaca(){
 		valido = true;
+		placa[1] = '\0';
 		
+		while(strlen(placa) != 7){
 		printf("placa: ");
 		gets(placa);
 		fflush(stdin);
+		}
 		
 		strupr(placa);
 
@@ -112,42 +114,45 @@ void registrarPlaca(){
 			case 0:
 				if(placaVet[i] < 65 || placaVet[i] > 90){
 					valido = false;
-					break;
+					return;
 				}
 			break;
 			case 1:
 				if(placaVet[i] < 65 || placaVet[i] > 90){
 					valido = false;
-					break;
+					return;
 				}
 			break;
 			case 2:
 				if(placaVet[i] < 65 || placaVet[i] > 90){
 					valido = false;
-					break;
+					return;
 				}
 			break;
 			case 3:
 				if(placaVet[i] < 48 || placaVet[i] > 57){
 					valido = false;
-					break;
+					return;
 				}
 			break;
             case 4:
                 if(!(placaVet[i] >= 48 && placaVet[i] <= 57) && !(placaVet[i] >= 65 && placaVet[i] <= 90)){
 					valido = false;
+                    return;
 					}
-                    break;
+			break;
             case 5:
                 if(placaVet[i] < 48 || placaVet[i] > 57 ){
                     valido = false;
-                    break;   
+                    return;   
 			    }
+			break;
             case 6:
                 if(placaVet[i] < 48 || placaVet[i] > 57 ){
                     valido = false;
-                    break;   
+                    return;   
                 }
+            break;
             }
         }            
 
@@ -155,7 +160,7 @@ void registrarPlaca(){
 //------------------------------------------------------------------------------
 void registrarMarca(){
 	
-	printf("O veículo é de que marca? Digite o número:\n");
+	printf("Qual a marca do veiculo? Digite o número:\n");
 	
 	for(int i = 0; i < 10; i++){
 		printf("%d - %s\n", i+1, marca[i]);	
@@ -169,6 +174,7 @@ void registrarMarca(){
 
 			case 1:
 				strcpy(marcaVeiculo, marca[0]);
+				printf("Qual o modelo? Digite o número:\n");
 				for(int i = 0; i < 14; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloGM[i]);	
 						}
@@ -182,6 +188,7 @@ void registrarMarca(){
 			break;
 			case 2:
 				strcpy(marcaVeiculo, marca[1]);	
+				printf("Qual o modelo? Digite o número:\n");
 				for(int i = 0; i < 3; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloCIT[i]);	
 						}
@@ -194,7 +201,8 @@ void registrarMarca(){
 						
 			break;
 			case 3:
-				strcpy(marcaVeiculo, marca[2]);	
+				strcpy(marcaVeiculo, marca[2]);
+				printf("Qual o modelo? Digite o número:\n");	
 				for(int i = 0; i < 7; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloFiat[i]);	
 						}
@@ -204,10 +212,11 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloFiat[modeloN-1]);
 						
 						system("cls");
-
+						
 			break;
             case 4:
-				strcpy(marcaVeiculo, marca[3]);		
+				strcpy(marcaVeiculo, marca[3]);	
+				printf("Qual o modelo? Digite o número:\n");	
 				for(int i = 0; i < 2; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloHD[i]);	
 						}
@@ -217,10 +226,11 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloHD[modeloN-1]);
 						
 						system("cls");
-
+						
             break;
             case 5:
                 strcpy(marcaVeiculo, marca[4]);	
+                printf("Qual o modelo? Digite o número:\n");
 				for(int i = 0; i < 1; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloJeep[i]);	
 						}
@@ -230,10 +240,11 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloJeep[modeloN-1]);
 						
 						system("cls");
-
+						
             break;   
             case 6:
                 strcpy(marcaVeiculo, marca[5]);
+                printf("Qual o modelo? Digite o número:\n");
 				for(int i = 0; i < 1; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloKia[i]);	
 						}
@@ -243,10 +254,11 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloKia[modeloN-1]);
 						
 						system("cls");
-
+						
             break;   
             case 7:
                 strcpy(marcaVeiculo, marca[6]);	 
+                printf("Qual o modelo? Digite o número:\n");
 				for(int i = 0; i < 3; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloPG[i]);	
 						}
@@ -256,10 +268,11 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloPG[modeloN-1]);
 						
 						system("cls");
-
+						
             break;    
             case 8:
                 strcpy(marcaVeiculo, marca[7]);	
+                printf("Qual o modelo? Digite o número:\n");
 				for(int i = 0; i < 5; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloRN[i]);	
 						}
@@ -269,10 +282,11 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloRN[modeloN-1]);
 						
 						system("cls");
-
+						
             break;   
             case 9:
                 strcpy(marcaVeiculo, marca[8]);	
+                printf("Qual o modelo? Digite o número:\n");
 				for(int i = 0; i < 3; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloToyo[i]);	
 						}
@@ -282,10 +296,11 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloToyo[modeloN-1]);
 						
 						system("cls");
-
+						
             break;   
             case 10:
                 strcpy(marcaVeiculo, marca[9]);	
+                printf("Qual o modelo? Digite o número:\n");
 				for(int i = 0; i < 5; i++){ //seleção dos modelos
 						printf("%d - %s\n", i+1, modeloVW[i]);	
 						}
@@ -295,7 +310,7 @@ void registrarMarca(){
 						strcpy(modeloVeiculo,modeloVW[modeloN-1]);
 						
 						system("cls");
-
+						
             break;   
                 
        }
@@ -303,10 +318,12 @@ void registrarMarca(){
 //------------------------------------------------------------------------------
 void registrarChassi(){
 		valido = true;
-		
+	
+		while(strlen(chassi) != 17){	
 		printf("Chassi: ");
 		gets(chassi);
 		fflush(stdin);
+		}
 		
 		strupr(chassi);
 
@@ -412,6 +429,7 @@ void registrarChassi(){
 }
 //-------------------------------------------------------------------------------
 void registrarSetor(){
+	printf("Insira o setor do veiculo: \n");
 	for(int i = 0; i < 10; i++){ //seleção do setor
     printf("%d - %s\n", i+1, setor[i]);	
    	}
