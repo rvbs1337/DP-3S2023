@@ -14,7 +14,8 @@
 3.0 - Seleção de Veiculo;
 4.0 - Seleção de Setor;
 5.0 - Registro de Chassi;
-5.1 - Correção de bugs, Adição de textos em falta;
+5.1 - Refatoração rapida;
+5.2 - Correção de bugs, Adição de textos que faltavam;
 */
 
 char placa[8];
